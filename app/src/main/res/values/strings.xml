@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Lovinmybag</string>
+    <string name="msg_error_connection">Error in connection</string>
+    <string name="msg_something_error">Something error</string>
+    <string name="msg_server_error">Server error… please try again</string>
+    <string name="no_internet">Please, Check your internet connection and try again</string>
+    <string name="empty_error_msg">Please, Enter your</string>
+    <string name="email_validation_error_msg">Email is incorrect</string>
+    <string name="phone_validation_error_msg">Mobile number is incorrect</string>
+    <string name="phone_or_email_validation_error_msg">Phone or mobile number is incorrect</string>
+    <string name="name_validation_error_msg">Name must be complete </string>
+    <string name="confirm_pass_validation_error_msg">Password didn\'t Match</string>
+    <string name="pass_validation_error_msg">Password must be at least 8 Letters</string>
+</resources>

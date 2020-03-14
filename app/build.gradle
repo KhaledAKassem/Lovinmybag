@@ -1,0 +1,122 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs"
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.beetleware.lovinmybag"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", "\"http://lovinmybag.beetleware.com/api/\"")
+        }
+
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", "\"http://lovinmybag.beetleware.com/api/\"")
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+    }
+    dexOptions {
+        preDexLibraries = false
+    }
+
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // Android KTX
+    implementation 'androidx.core:core-ktx:1.2.0'
+
+    // UI Frameworks
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.2.0-alpha05'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.annotation:annotation:1.1.0'
+
+    //life cycle + viewModel + LiveData
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.ext.lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.ext.lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$rootProject.ext.lifecycle_version"
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+
+    //navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version_ktx"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version_ktx"
+
+    // Dagger
+    implementation "com.google.dagger:dagger:$rootProject.ext.dagger2_version"
+    implementation "com.google.dagger:dagger-android:$rootProject.ext.dagger2_version"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.ext.dagger2_version"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.ext.dagger2_version"
+
+    //networking
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofit_version"
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.ext.okHttp3_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okHttp3_version"
+
+    //glide image library
+    implementation "com.github.bumptech.glide:glide:$rootProject.ext.glide_version"
+    kapt "com.github.bumptech.glide:compiler:$rootProject.ext.glide_version"
+
+    //circular image
+    implementation "de.hdodenhof:circleimageview:$rootProject.ext.circularImg_version"
+
+    // multidex
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    //Progress bar
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
+    //material editText
+    implementation project(path: ':material_edittext')
+
+}

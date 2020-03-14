@@ -1,0 +1,2 @@
+rootProject.name='Lovinmybag'
+include ':app', ':material_edittext'

@@ -29,12 +29,8 @@ interface BaseView {
      */
     fun observeLiveDatas()
 
-    /**
-     * use this method to  hide the keyboard if it's shown
-     */
-    fun hideKeyboard()
+
 
     fun initBottomSheet(){}
-    fun openCamera()
-    fun openGallery()
+
 }

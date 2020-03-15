@@ -10,7 +10,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
 import com.beetleware.lovinmybag.common.Constants
-import com.beetleware.lovinmybag.common.utils.ImageManger
 
 
 abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding>
@@ -47,26 +46,6 @@ abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding>
         mBinding.lifecycleOwner = this
     }
 
-    override fun hideKeyboard() {
-        val view = currentFocus
-        if (view != null) {
-            val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
-            imm!!.hideSoftInputFromWindow(view.windowToken, 0)
-        }
-    }
-
-
-    override fun openGallery() {
-        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        intent.type = "image/*"
-        startActivityForResult(intent, Constants.GALLERY_REQUEST_CODE)
-    }
-
-    override fun openCamera() {
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, ImageManger.save_image_in_provider(this))
-        startActivityForResult(intent, Constants.CAMERA_REQUEST_CODE)
-    }
 
 }
 

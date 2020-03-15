@@ -1,6 +1,5 @@
 package com.beetleware.lovinmybag.ui.base
 
-
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -17,7 +16,6 @@ import com.beetleware.lovinmybag.R
 import com.google.gson.Gson
 import com.beetleware.lovinmybag.common.Constants
 import com.beetleware.lovinmybag.common.extensions.errorMsg
-import com.beetleware.lovinmybag.common.utils.ImageManger
 import com.beetleware.lovinmybag.data.network.model.ApiResponse
 import com.beetleware.lovinmybag.data.network.model.ErrorResponse
 import java.io.IOException
@@ -94,7 +92,6 @@ abstract class BaseFragment<VM : BaseViewModel,
 
             if (response.isCanceled) return
 
-            hideKeyboard()
 
             when (response.exception) {
                 is IOException -> errorMsg(R.string.msg_error_connection)
@@ -104,7 +101,7 @@ abstract class BaseFragment<VM : BaseViewModel,
             }
 
         } else if (!response.isResponseSuccessful) {
-            hideKeyboard()
+
 
             when (response.responseCode) {
                 302, 500, 503 -> errorMsg(R.string.msg_server_error)
@@ -159,8 +156,7 @@ abstract class BaseFragment<VM : BaseViewModel,
                         )
                         errorMsg(error.errors.values.first { true }[0])
                     } catch (e: Exception) {
-                        val x=e
-                        x
+
                         errorMsg(R.string.msg_something_error)
                     }
 
@@ -168,27 +164,4 @@ abstract class BaseFragment<VM : BaseViewModel,
             }
         }
     }
-
-    override fun hideKeyboard() {
-        val view = activity?.currentFocus
-
-        if (view != null) {
-            val imm = context!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
-            imm!!.hideSoftInputFromWindow(view.windowToken, 0)
-        }
-    }
-
-    override fun openGallery() {
-        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        intent.type = "image/*"
-        activity?.startActivityForResult(intent, Constants.GALLERY_REQUEST_CODE)
-    }
-
-    override fun openCamera() {
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, ImageManger.save_image_in_provider(context))
-        activity?.startActivityForResult(intent, Constants.CAMERA_REQUEST_CODE)
-    }
-
-
 }

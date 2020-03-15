@@ -10,11 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
 import com.beetleware.lovinmybag.common.Constants
-import com.beetleware.lovinmybag.common.extensions.appComponent
-import com.beetleware.lovinmybag.common.extensions.get
-import com.beetleware.lovinmybag.common.extensions.put
 import com.beetleware.lovinmybag.common.utils.ImageManger
-import com.beetleware.lovinmybag.common.utils.Localization
 
 
 abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding>

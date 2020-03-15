@@ -6,7 +6,6 @@ import android.util.Log
 import com.beetleware.lovinmybag.BuildConfig
 import com.beetleware.lovinmybag.common.Constants
 import com.beetleware.lovinmybag.common.extensions.get
-import com.beetleware.lovinmybag.common.utils.Localization
 import com.beetleware.lovinmybag.common.utils.NetworkUtils
 import com.beetleware.lovinmybag.data.network.ApiService
 import dagger.Module

@@ -11,4 +11,7 @@
     <string name="name_validation_error_msg">Name must be complete </string>
     <string name="confirm_pass_validation_error_msg">Password didn\'t Match</string>
     <string name="pass_validation_error_msg">Password must be at least 8 Letters</string>
+    <string name="login">Login</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
 </resources>

@@ -3,7 +3,7 @@ package com.beetleware.lovinmybag.data
 
 import androidx.lifecycle.MutableLiveData
 import com.beetleware.lovinmybag.data.network.AppNetworkHelper
-import com.beetleware.lovinmybag.data.network.model.VerificationResponse
+import com.beetleware.lovinmybag.data.network.model.*
 import com.beetleware.lovinmybag.data.preferences.AppPreferenceHelper
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -47,5 +47,16 @@ class AppRepositoryHelper @Inject constructor(
         preferenceHelper.setUserProfileConfirmedState(confirmed)
 
     /** Networking **/
+
+
+    override fun login(
+        username: String,
+        password: String
+    )  = networkHelper.login(username, password)
+    override fun getProfile() = networkHelper.getProfile()
+    override fun getSoldItem() = networkHelper.getSoldItem()
+    override fun getProductCount() = networkHelper.getProductCount()
+    override fun getEmployeeStatics() = networkHelper.getEmployeeStatics()
+
 
 }

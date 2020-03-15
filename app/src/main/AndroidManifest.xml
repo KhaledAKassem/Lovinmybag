@@ -3,6 +3,7 @@
     package="com.beetleware.lovinmybag">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
         android:name=".BeetlewareApp"
         android:allowBackup="true"
@@ -23,6 +24,7 @@
         </activity>
 
         <activity android:name=".ui.activities.main.MainActivity"/>
+        <activity android:name=".ui.activities.auth.AuthActivity"/>
     </application>
 
 </manifest>

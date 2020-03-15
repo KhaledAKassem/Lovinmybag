@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
@@ -7,7 +8,128 @@
             type="com.beetleware.lovinmybag.ui.fragments.login.LoginViewModel" />
     </data>
 
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x250dp"/>
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/space_50"
+        android:src="@drawable/splash_logo"
+        android:layout_width="@dimen/x120dp"
+        android:layout_height="@dimen/x120dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_below="@id/img_logo"
+        android:layout_marginBottom="@dimen/space_10"
+        android:layout_marginStart="@dimen/space_20"
+        android:layout_marginEnd="@dimen/space_20"
+        app:cardCornerRadius="@dimen/x10dp"
+        android:layout_marginTop="@dimen/x20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:id="@+id/login_banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:background="@drawable/rectangle_login"
+                android:layout_width="match_parent"
+                android:layout_marginStart="@dimen/space_10"
+                android:layout_marginEnd="@dimen/space_10"
+                android:layout_height="@dimen/x50dp"/>
+
+            <TextView
+                android:text="@string/login"
+                style="@style/tv_style"
+                android:textAlignment="center"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </FrameLayout>
+
+            <com.beetleware.lovinmybag.ui.customs.CustomEditText
+                android:id="@+id/et_username"
+                android:layout_marginTop="@dimen/space_20"
+                android:layout_marginStart="@dimen/space_20"
+                android:layout_marginEnd="@dimen/space_20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edit_icon"
+                android:inputType="text"
+                android:drawableLeft="@drawable/ic_user"
+                android:drawablePadding="20dp"
+                android:paddingStart="@dimen/space_8"
+                android:paddingEnd="@dimen/space_12"
+                android:paddingTop="@dimen/space_12"
+                android:paddingBottom="@dimen/space_12"
+                android:hint="@string/user_name"
+                tools:ignore="RtlHardcoded" />
+
+            <com.beetleware.lovinmybag.ui.customs.CustomEditText
+                android:id="@+id/et_password"
+                android:layout_marginTop="@dimen/space_20"
+                android:layout_marginStart="@dimen/space_20"
+                android:layout_marginEnd="@dimen/space_20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edit_icon"
+                android:inputType="textPassword"
+                android:drawableLeft="@drawable/ic_paasword"
+                android:drawablePadding="20dp"
+                android:paddingStart="@dimen/space_8"
+                android:paddingEnd="@dimen/space_12"
+                android:paddingTop="@dimen/space_12"
+                android:paddingBottom="@dimen/space_12"
+                android:hint="@string/password"
+                tools:ignore="RtlHardcoded" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_login"
+                android:text="@string/login"
+                android:layout_marginTop="@dimen/x10dp"
+                android:backgroundTint="@color/colorAccent"
+                android:layout_marginBottom="@dimen/space_20"
+                android:layout_marginStart="@dimen/x30dp"
+                android:onClick="@{(v) -> viewModel.validateInputData(v)}"
+                android:layout_marginEnd="@dimen/x30dp"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/cairo_bold"
+                android:padding="@dimen/x8dp"
+                />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
+</androidx.core.widget.NestedScrollView>
+</RelativeLayout>
+
 </layout>

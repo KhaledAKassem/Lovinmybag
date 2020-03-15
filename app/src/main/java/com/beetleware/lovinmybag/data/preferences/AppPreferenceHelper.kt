@@ -20,8 +20,6 @@ class AppPreferenceHelper @Inject constructor(private val preferences: SharedPre
         Constants.CURRENT_LANGUAGE_KEY, Constants.NOT_DEFINED_LANG
     )
 
-
-
     override fun storeUser(user: VerificationResponse.Data) {
         setUserLoggedIn(true)
         setUserId(user.id)

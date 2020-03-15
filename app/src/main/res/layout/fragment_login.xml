@@ -83,8 +83,8 @@
                 android:inputType="text"
                 android:drawableLeft="@drawable/ic_user"
                 android:drawablePadding="20dp"
-                android:paddingStart="@dimen/space_8"
-                android:paddingEnd="@dimen/space_12"
+                android:paddingStart="@dimen/x8dp"
+                android:paddingEnd="@dimen/x8dp"
                 android:paddingTop="@dimen/space_12"
                 android:paddingBottom="@dimen/space_12"
                 android:hint="@string/user_name"
@@ -101,8 +101,8 @@
                 android:inputType="textPassword"
                 android:drawableLeft="@drawable/ic_paasword"
                 android:drawablePadding="20dp"
-                android:paddingStart="@dimen/space_8"
-                android:paddingEnd="@dimen/space_12"
+                android:paddingStart="@dimen/x8dp"
+                android:paddingEnd="@dimen/x8dp"
                 android:paddingTop="@dimen/space_12"
                 android:paddingBottom="@dimen/space_12"
                 android:hint="@string/password"
@@ -130,6 +130,10 @@
 
 </RelativeLayout>
 </androidx.core.widget.NestedScrollView>
+
+    <include layout="@layout/progress_bar"
+        app:viewModel="@{viewModel}"/>
+
 </RelativeLayout>
 
 </layout>

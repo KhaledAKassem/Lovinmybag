@@ -27,7 +27,6 @@ import javax.inject.Singleton
  */
 @Module
 class NetworkModule {
-
     /**
      * provide Http Interceptor to be used in logging networking
      *
@@ -121,11 +120,9 @@ class NetworkModule {
 
         return Interceptor { chain ->
             var request = chain.request()
-
             request = request.newBuilder()
                 .header("Accept", "application/json")
                 .header("Authorization",pref.get(Constants.USER_ACCESS_TOKEN_KEY,""))
-                .header("lang", Localization.getLanguage())
                 .build()
             chain.proceed(request)
         }
@@ -161,7 +158,6 @@ class NetworkModule {
 
         return client.build()
     }
-
 
     /**
      * Provides the Retrofit object.

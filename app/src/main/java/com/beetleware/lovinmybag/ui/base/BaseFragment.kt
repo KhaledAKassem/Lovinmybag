@@ -44,7 +44,6 @@ abstract class BaseFragment<VM : BaseViewModel,
     override fun onPrepareOptionsMenu(menu: Menu) {
         super.onPrepareOptionsMenu(menu)
 
-//        menu.findItem(R.id.notification_item).isVisible = true
     }
 
     override fun onCreateView(

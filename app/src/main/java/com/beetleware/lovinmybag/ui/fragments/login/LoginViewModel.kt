@@ -8,6 +8,7 @@ import com.beetleware.lovinmybag.common.extensions.forEach
 import com.beetleware.lovinmybag.data.network.model.ApiResponse
 import com.beetleware.lovinmybag.data.network.model.GeneralResponse
 import com.beetleware.lovinmybag.data.network.model.LoginResponse
+import com.beetleware.lovinmybag.data.network.model.VerificationResponse
 import com.beetleware.lovinmybag.ui.base.BaseViewModel
 import com.beetleware.lovinmybag.ui.customs.CustomEditText
 import com.beetleware.lovinmybag.ui.customs.CustomMaterialEditText
@@ -40,5 +41,6 @@ class LoginViewModel (app:Application): BaseViewModel(app) {
         return apiResponse
     }
 
+    fun storeUser(loginResponse: LoginResponse) = appRepositoryHelper.storeUser(loginResponse)
 
 }

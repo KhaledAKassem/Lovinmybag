@@ -2,8 +2,8 @@ package com.beetleware.lovinmybag.ui.fragments.login
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.beetleware.lovinmybag.R
-import com.beetleware.lovinmybag.common.extensions.confirmMsg
 import com.beetleware.lovinmybag.databinding.FragmentLoginBinding
 import com.beetleware.lovinmybag.ui.base.BaseFragment
 
@@ -16,19 +16,7 @@ class LoginFragment : LoginView, BaseFragment<LoginViewModel, FragmentLoginBindi
     }
 
     override fun init(savedInstanceState: Bundle?) {
-      initViews()
-    }
 
-    override fun initViews(){
-
-    }
-
-    override fun login(userName: String, password: String) {
-        viewModel.login(userName,password).observe(this, Observer {
-            if(it.isResponseSuccessful){
-                confirmMsg("login done ")
-            }
-        })
     }
 
     override fun observeLiveDatas() {
@@ -37,6 +25,15 @@ class LoginFragment : LoginView, BaseFragment<LoginViewModel, FragmentLoginBindi
             if (it) {
                 viewModel.isDataValid.value = false
                 login(mBinding.etUsername.text.toString(), mBinding.etPassword.text.toString())
+            }
+        })
+    }
+
+    override fun login(userName: String, password: String) {
+        viewModel.login(userName,password).observe(this, Observer {
+            if(it.isResponseSuccessful){
+                viewModel.storeUser(it.responseBody!!.data!!)
+                findNavController().navigate(R.id.action_loginFragment_to_mainActivity)
             }
         })
     }

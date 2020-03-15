@@ -30,8 +30,6 @@ abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding>
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        setInitialLanguage()
-
         super.onCreate(savedInstanceState)
 
         initViewModel(viewModel)
@@ -59,24 +57,6 @@ abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding>
             val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
             imm!!.hideSoftInputFromWindow(view.windowToken, 0)
         }
-    }
-
-    /**
-     * check for the stored language in shared pref :
-     * - if NOT_DEFINED_LANG : no stored language and set app local to "ar"
-     * - else update the app locale to match the stored language.
-     */
-    private fun setInitialLanguage() {
-        var currentLang = appComponent().getSharedPreference().get(
-            Constants.CURRENT_LANGUAGE_KEY, Constants.NOT_DEFINED_LANG
-        )
-
-        if (currentLang == Constants.NOT_DEFINED_LANG) {
-            currentLang = Constants.ARABIC
-            appComponent().getSharedPreference().put(Constants.CURRENT_LANGUAGE_KEY, currentLang)
-        }
-
-        Localization.setLanguage(this, currentLang)
     }
 
 

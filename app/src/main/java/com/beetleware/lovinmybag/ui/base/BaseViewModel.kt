@@ -38,7 +38,6 @@ abstract class BaseViewModel(val app: Application) : AndroidViewModel(app) {
 
     fun isLoggedin() = appRepositoryHelper.isUserLoggedIn()
 
-
     fun removeUser() {
         appRepositoryHelper.removeUser()
     }

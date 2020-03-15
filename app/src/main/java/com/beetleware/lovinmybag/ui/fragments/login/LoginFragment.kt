@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.beetleware.lovinmybag.R
+import com.beetleware.lovinmybag.common.utils.Validation
 import com.beetleware.lovinmybag.databinding.FragmentLoginBinding
 import com.beetleware.lovinmybag.ui.base.BaseFragment
 
@@ -24,7 +25,9 @@ class LoginFragment : LoginView, BaseFragment<LoginViewModel, FragmentLoginBindi
         viewModel.isDataValid.observe(this, Observer {
             if (it) {
                 viewModel.isDataValid.value = false
-                login(mBinding.etUsername.text.toString(), mBinding.etPassword.text.toString())
+                if(Validation.validateEmptyField(context!!,mBinding.etUsername )&& Validation.validateEmptyField(context!!,mBinding.etPassword)){
+                    login(mBinding.etUsername.text.toString(), mBinding.etPassword.text.toString())
+                }
             }
         })
     }
